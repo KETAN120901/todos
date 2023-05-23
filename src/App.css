@@ -29,7 +29,7 @@ margin: 0px;
 }
 input{
     width: 95%;
-    height: 25px;
+    height: 30px;
     border: 0px;
 
 }
@@ -37,29 +37,17 @@ input{
     height: 30px;
    cursor: pointer;
 }
-.date{
+.date,.form{
     display: flex;
     padding: 20px;
-    
     align-items: center;
     justify-content: space-between;
     background-color: rgb(129, 44, 129);
 }
-
-.form form{
-    display: flex;
-    padding: 20px;
+.form{
     padding-top: 0px;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(129, 44, 129);
 }
-form button{
-    background-color: rgb(129, 44, 129);
-    border: 0px;
-    color: white;
-}
-.taskcontainer > form{
+.taskcontainer > div{
     background-color: rgb(129, 44, 129);
     margin: 20px;
     border: 2px solid white;
@@ -72,8 +60,7 @@ form button{
     align-items: center;
     padding: 10px;
 }
-
-.task>div{
+.task > div{
     width: 75%;
     overflow:auto;
 }

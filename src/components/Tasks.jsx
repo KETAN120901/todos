@@ -44,7 +44,7 @@ function Tasks(props){
                 .then(response => {
                     console.log('Response from server:', response.data);
                     
-                    
+                    window.location.reload();
                 })
                 .catch(error => {
                     console.error('Error sending POST request:', error);
@@ -61,7 +61,7 @@ function Tasks(props){
         axios.put(`https://todo-list-api-gs2r.onrender.com/update/${id}`,newtask)
         .then(response => {
             console.log(response.data)
-            
+            window.location.reload();
             })
             .catch(error => {
             console.log(error);
@@ -74,7 +74,7 @@ function Tasks(props){
         axios.delete(`https://todo-list-api-gs2r.onrender.com/delete/${id}`)
         .then(response => {
             console.log(response.data); // Success message or additional handling
-            
+            window.location.reload();
           })
           .catch(error => {
             console.error(error); // Error handling
@@ -87,14 +87,12 @@ function Tasks(props){
             
             <div className="date">{props.date} </div>
             <div className="form">
-                <form >
+             
                 <input type="text" name="name" value={task.name} onChange={handleChange}/>
-                <button type="submit"><FontAwesomeIcon className="icons" icon={faCirclePlus} onClick={handleSubmit} /></button>
-                </form>
+                <FontAwesomeIcon className="icons" icon={faCirclePlus} onClick={handleSubmit} />
             </div>
-            
             <div className="taskcontainer">{filteredArray.map((task)=>(
-                <form className="task"><div>{task.name}</div><button type="submit"><FontAwesomeIcon className="icons" icon={faPenToSquare} onClick={()=>handleUpdate(task._id)}/></button> <button type="submit"></button><button><FontAwesomeIcon className="icons" icon={faTrash} onClick={()=>handleDelete(task._id)}/></button></form>
+                <div className="task"><div>{task.name}</div><FontAwesomeIcon className="icons" icon={faPenToSquare} onClick={()=>handleUpdate(task._id)}/> <FontAwesomeIcon className="icons" icon={faTrash} onClick={()=>handleDelete(task._id)}/></div>
                 
             ))}</div>
             
