@@ -35,7 +35,7 @@ function Tasks(props){
     function handleSubmit(event){
         
         if(task.name===""){
-            alert("please enter the task");
+            alert("Please enter valid task");
         }
         else{
             task.date=props.date;
@@ -58,6 +58,10 @@ function Tasks(props){
         const newname=prompt("enter the updated value");
         const newtask={name:newname};
         console.log(newtask);
+        if(newname===""){
+            alert("Please enter valid task")
+        }
+        else{
         axios.put(`https://todo-list-api-gs2r.onrender.com/update/${id}`,newtask)
         .then(response => {
             console.log(response.data)
@@ -67,7 +71,7 @@ function Tasks(props){
             console.log(error);
             });
            
-      
+        }
         }
     function handleDelete(id){
         console.log(id)
