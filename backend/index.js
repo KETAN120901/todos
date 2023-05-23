@@ -8,11 +8,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://todo-list-rwgd.onrender.com"); // replace with your frontend's URL
+  res.header("Access-Control-Allow-Origin", "http://todo-list-rwgd.onrender.com"); // replace with your frontend's URL
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-app.use(cors({origin:'https://todo-list-rwgd.onrender.com'}));
+app.use(cors({origin:'http://todo-list-rwgd.onrender.com'}));
 const PORT=process.env.PORT || 5000;
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URI);
