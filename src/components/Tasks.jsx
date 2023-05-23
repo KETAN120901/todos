@@ -17,7 +17,7 @@ function Tasks(props){
    
     const [taskarray,setTaskarray]=useState([]);
     useEffect(() => {
-        axios.get('http://todo-list-api-gs2r.onrender.com/')
+        axios.get('https://todo-list-api-gs2r.onrender.com/')
           .then(response => {
             setTaskarray(response.data);
             
@@ -33,7 +33,7 @@ function Tasks(props){
             return {...prevtask,[name]:value}})
     }
     function handleSubmit(event){
-        axios.post('http://todo-list-api-gs2r.onrender.com/', task)
+        axios.post('https://todo-list-api-gs2r.onrender.com/', task)
                 .then(response => {
                     console.log('Response from server:', response.data);
                     
@@ -47,7 +47,7 @@ function Tasks(props){
         }
         else{
             task.date=props.date;
-            axios.post('http://todo-list-api-gs2r.onrender.com/', task)
+            axios.post('https://todo-list-api-gs2r.onrender.com/', task)
                 .then(response => {
                     console.log('Response from server:', response.data);
                     
@@ -62,7 +62,7 @@ function Tasks(props){
         const newname=prompt("enter the updated value");
         const newtask={name:newname};
         console.log(newtask);
-        axios.put(`http://todo-list-api-gs2r.onrender.com/update/${id}`,newtask)
+        axios.put(`https://todo-list-api-gs2r.onrender.com/update/${id}`,newtask)
         .then(response => {
             console.log(response.data)
                 
@@ -75,7 +75,7 @@ function Tasks(props){
         }
     function handleDelete(id){
         console.log(id)
-        axios.delete(`http://todo-list-api-gs2r.onrender.com/delete/${id}`)
+        axios.delete(`https://todo-list-api-gs2r.onrender.com/delete/${id}`)
         .then(response => {
             console.log(response.data); // Success message or additional handling
             window.location.reload();
