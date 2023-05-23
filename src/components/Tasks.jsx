@@ -17,7 +17,7 @@ function Tasks(props){
    
     const [taskarray,setTaskarray]=useState([]);
     useEffect(() => {
-        axios.get('https://todo-list-api-gs2r.onrender.com/')
+        axios.get('http://localhost:5000/')
           .then(response => {
             setTaskarray(response.data);
             
@@ -33,13 +33,20 @@ function Tasks(props){
             return {...prevtask,[name]:value}})
     }
     function handleSubmit(event){
-    
+        axios.post('http://localhost:5000/', task)
+        .then(response => {
+            console.log('Response from server:', response.data);
+            
+        })
+        .catch(error => {
+            console.error('Error sending POST request:', error);
+        });
         if(task.name===""){
             alert("please enter the task");
         }
         else{
             task.date=props.date;
-            axios.post('https://todo-list-api-gs2r.onrender.com/', task)
+            axios.post('http://localhost:5000/', task)
                 .then(response => {
                     console.log('Response from server:', response.data);
                     
@@ -53,7 +60,7 @@ function Tasks(props){
     function handleUpdate(id){
         const newname=prompt("enter the updated value");
         const newtask={name:newname};
-        axios.put(`https://todo-list-api-gs2r.onrender.com/update/${id}`,newtask)
+        axios.put(`http://localhost:5000/update/${id}`,newtask)
         .then(response => {
             console.log(response.data)
                 
@@ -66,7 +73,7 @@ function Tasks(props){
         }
     function handleDelete(id){
         console.log(id)
-        axios.delete(`https://todo-list-api-gs2r.onrender.com/delete/${id}`)
+        axios.delete(`http://localhost:5000/delete/${id}`)
         .then(response => {
             console.log(response.data); // Success message or additional handling
             window.location.reload();
@@ -84,7 +91,7 @@ function Tasks(props){
             <div className="form">
              
                 <input type="text" name="name" value={task.name} onChange={handleChange}/>
-                <FontAwesomeIcon className="icons" icon={faCirclePlus} onClick={handleSubmit} />
+                <FontAwesomeIcon className="icons" icon={faCirclePlus} onClick={()=>handleSubmit()} />
             </div>
             <div className="taskcontainer">{filteredArray.map((task)=>(
                 <div className="task"><div>{task.name}</div><FontAwesomeIcon className="icons" icon={faPenToSquare} onClick={()=>handleUpdate(task._id)}/> <FontAwesomeIcon className="icons" icon={faTrash} onClick={()=>handleDelete(task._id)}/></div>
