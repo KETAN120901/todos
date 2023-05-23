@@ -92,7 +92,7 @@ function Tasks(props){
             <div className="date">{props.date} </div>
             <div className="form">
              
-                <input type="text" name="name" value={task.name} onChange={handleChange}/>
+                <input type="text" placeholder="Enter your task" name="name" value={task.name} onChange={handleChange}/>
                 <FontAwesomeIcon className="icons" icon={faCirclePlus} onClick={handleSubmit} />
             </div>
             <div className="taskcontainer">{filteredArray.map((task)=>(
