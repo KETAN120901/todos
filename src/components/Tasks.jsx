@@ -43,20 +43,13 @@ function Tasks(props){
             axios.post('https://todo-list-api-gs2r.onrender.com/', task)
                 .then(response => {
                     console.log('Response from server:', response.data);
-                    console.log("post")
+                    
+                    window.location.reload();
                 })
                 .catch(error => {
                     console.error('Error sending POST request:', error);
                 });
-            axios.get('https://todo-list-api-gs2r.onrender.com/')
-          .then(response => {
-            setTaskarray(response.data);
-            console.log(response.data)
-          })
-          .catch(error => {
-            console.log(error);
-          });
-
+           
           
       
         }
@@ -68,19 +61,12 @@ function Tasks(props){
         axios.put(`https://todo-list-api-gs2r.onrender.com/update/${id}`,newtask)
         .then(response => {
             console.log(response.data)
-                
+            window.location.reload();
             })
             .catch(error => {
             console.log(error);
             });
-            axios.get('https://todo-list-api-gs2r.onrender.com/')
-            .then(response => {
-              setTaskarray(response.data);
-              console.log(response.data)
-            })
-            .catch(error => {
-              console.log(error);
-            });
+           
       
         }
     function handleDelete(id){
@@ -88,18 +74,10 @@ function Tasks(props){
         axios.delete(`https://todo-list-api-gs2r.onrender.com/delete/${id}`)
         .then(response => {
             console.log(response.data); // Success message or additional handling
-            
+            window.location.reload();
           })
           .catch(error => {
             console.error(error); // Error handling
-          });
-          axios.get('https://todo-list-api-gs2r.onrender.com/')
-          .then(response => {
-            setTaskarray(response.data);
-            console.log(response.data)
-          })
-          .catch(error => {
-            console.log(error);
           });
     }
     const filteredArray=taskarray.filter(task=>task.date===props.date);
