@@ -29,7 +29,7 @@ margin: 0px;
 }
 input{
     width: 95%;
-    height: 30px;
+    height: 25px;
     border: 0px;
 
 }
@@ -37,17 +37,29 @@ input{
     height: 30px;
    cursor: pointer;
 }
-.date,.form{
+.date{
     display: flex;
     padding: 20px;
+    
     align-items: center;
     justify-content: space-between;
     background-color: rgb(129, 44, 129);
 }
-.form{
+
+.form form{
+    display: flex;
+    padding: 20px;
     padding-top: 0px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(129, 44, 129);
 }
-.taskcontainer > div{
+form button{
+    background-color: rgb(129, 44, 129);
+    border: 0px;
+    color: white;
+}
+.taskcontainer > form{
     background-color: rgb(129, 44, 129);
     margin: 20px;
     border: 2px solid white;
@@ -60,7 +72,8 @@ input{
     align-items: center;
     padding: 10px;
 }
-.task > div{
+
+.task>div{
     width: 75%;
     overflow:auto;
 }
