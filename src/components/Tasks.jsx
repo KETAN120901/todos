@@ -48,7 +48,7 @@ function Tasks(props){
                 .catch(error => {
                     console.error('Error sending POST request:', error);
                 });
-                window.location.reload();
+               
         }
     }
     function handleUpdate(id){
