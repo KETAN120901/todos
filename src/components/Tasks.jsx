@@ -33,14 +33,7 @@ function Tasks(props){
             return {...prevtask,[name]:value}})
     }
     function handleSubmit(event){
-        axios.post('http://localhost:5000/', task)
-        .then(response => {
-            console.log('Response from server:', response.data);
-            
-        })
-        .catch(error => {
-            console.error('Error sending POST request:', error);
-        });
+        
         if(task.name===""){
             alert("please enter the task");
         }
