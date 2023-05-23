@@ -17,7 +17,7 @@ function Tasks(props){
    
     const [taskarray,setTaskarray]=useState([]);
     useEffect(() => {
-        axios.get('https://todo-list-api-gs2r.onrender.com')
+        axios.get('https://todo-list-api-gs2r.onrender.com/')
           .then(response => {
             setTaskarray(response.data);
             
@@ -39,7 +39,7 @@ function Tasks(props){
         }
         else{
             task.date=props.date;
-            axios.post('https://todo-list-api-gs2r.onrender.com', task)
+            axios.post('https://todo-list-api-gs2r.onrender.com/', task)
                 .then(response => {
                     console.log('Response from server:', response.data);
                     
