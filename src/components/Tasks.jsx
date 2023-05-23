@@ -53,6 +53,7 @@ function Tasks(props){
     function handleUpdate(id){
         const newname=prompt("enter the updated value");
         const newtask={name:newname};
+        console.log(newtask);
         axios.put(`https://todo-list-api-gs2r.onrender.com/update/${id}`,newtask)
         .then(response => {
             console.log(response.data)
